@@ -3,18 +3,18 @@ package com.sayatkasim.elilypatisserie.entities.concretes;
 import jakarta.persistence.*;
 import lombok.*;
 
-@Data
 @Entity
+@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Setter
-@Getter
-@Table(name="categorys")
-public class Category {
+@Table(name ="Floors")
+public class Floor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="category_id")
+    @Column(name = "floor_id")
     private int id;
-    @Column(name="category_name")
+    @Column(name="floor_name")
     private String name;
 }

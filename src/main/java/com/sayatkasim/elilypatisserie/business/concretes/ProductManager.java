@@ -1,7 +1,9 @@
 package com.sayatkasim.elilypatisserie.business.concretes;
 
 import com.sayatkasim.elilypatisserie.business.abstracts.ProductService;
+import com.sayatkasim.elilypatisserie.core.utilities.results.DataResult;
 import com.sayatkasim.elilypatisserie.core.utilities.results.Result;
+import com.sayatkasim.elilypatisserie.core.utilities.results.SuccessDataResult;
 import com.sayatkasim.elilypatisserie.core.utilities.results.SuccessResult;
 import com.sayatkasim.elilypatisserie.dataAccess.abstracts.ProductDao;
 import com.sayatkasim.elilypatisserie.entities.concretes.Product;
@@ -41,5 +43,36 @@ public class ProductManager implements ProductService {
     public Result delete(Product product) {
         this.productDao.delete(product);
         return new SuccessResult("Product deleted");
+    }
+
+    @Override
+    public DataResult<Product> getById(int id) {
+        return new SuccessDataResult<>(productDao.getById(id),"Product found" );
+
+    }
+
+    @Override
+    public DataResult<List<Product>> getByName(String name) {
+        return new SuccessDataResult<List<Product>>(this.productDao.getByName(name),"Product found");
+    }
+
+    @Override
+    public DataResult<List<Product>> getByDescription(String description) {
+        return null;
+    }
+
+    @Override
+    public DataResult<List<Product>> getByPrice(int price) {
+        return null;
+    }
+
+    @Override
+    public DataResult<List<Product>> getByPrice(int price, int min, int max) {
+        return null;
+    }
+
+    @Override
+    public DataResult<List<Product>> getByFloor(int floor) {
+        return null;
     }
 }
